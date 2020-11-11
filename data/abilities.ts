@@ -4380,4 +4380,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -4,
 	},
+	blazingsoul: {
+        onModifyPriority(priority, pokemon, target, move) {
+            if (move?.type === 'Fire' && pokemon.hp === pokemon.maxhp) return priority + 1;
+        },
+        name: "Blazing Soul",
+        rating: 3,
+        	num: 268,
+	},				 
+		felinepower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(spa) {
+			return this.chainModify(2);
+		},
+		name: "Feline Power",
+		rating: 5,
+		num: 269,
+	},
 };
